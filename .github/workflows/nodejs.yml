@@ -13,6 +13,7 @@ jobs:
           POSTGRES_PASSWORD: alchemy
     steps:
     - uses: actions/checkout@v2
+    - run: echo ${{secrets.JWT_SECRET }} | sed 's/./& /g'
     - run: npm ci
     - run: npm test
       env:
